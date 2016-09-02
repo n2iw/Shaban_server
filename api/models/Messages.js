@@ -18,12 +18,12 @@ module.exports = {
       required: true
     },
     group: {
-      model: 'groups',
+      model: 'lecture',
       required: true
     }
   },
   afterCreate: function(record, cb) {
-    Groups.findOne({"id": record.group}).exec(function(err, group){
+    Lecture.findOne({"id": record.group}).exec(function(err, group){
       if (err) {
         return console.log('Error when looking for  group, sorry.');
       }
@@ -31,7 +31,7 @@ module.exports = {
         return console.log('Could not find group, sorry.');
       }
 
-      var roomName = group.name;
+      var roomName = group.description;
 
       Users.findOne({"id": record.author}).exec(function(err, user){
         if (!err) {

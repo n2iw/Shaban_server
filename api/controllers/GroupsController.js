@@ -10,7 +10,7 @@ module.exports = {
       return res.badRequest();
     }
 
-    Groups.findOne({"id": req.params["id"]}).exec(function(err, group){
+    Lecture.findOne({"id": req.params["id"]}).exec(function(err, group){
       if (err) {
         return res.serverError(err);
       }
@@ -18,7 +18,7 @@ module.exports = {
         return res.notFound('Could not find group, sorry.');
       }
 
-      var roomName = group.name;
+      var roomName = group.description;
 
       sails.log('Found "%s"', roomName);
       sails.sockets.join(req, roomName, function(err) {
