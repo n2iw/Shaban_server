@@ -16,7 +16,9 @@ module.exports = {
 
     video_url : { 
       type: 'string',
-      required: true
+      required: true,
+      notNull: true,
+      defaultsTo: ""
     },
 
     serial_number : { 
