@@ -18,8 +18,9 @@ module.exports = {
       required: false
     },
     authorName: {
-      type: 'string'
-    }
+      type: 'string',
+      required: true
+    },
     group: {
       model: 'lecture',
       required: true
@@ -35,15 +36,17 @@ module.exports = {
       }
 
       var roomName = group.description;
+      sails.sockets.broadcast(roomName, record);
 
-      Users.findOne({"id": record.author}).exec(function(err, user){
-        if (!err) {
-          record.author = user.name;
-          sails.sockets.broadcast(roomName, record);
-        } else {
-          console.log("looking for user error: " + err);
-        }
-      });
+//      Users.findOne({"id": record.author}).exec(function(err, user){
+//        if (!err && !user) {
+//          console.log(user);
+//          record.author = user.name;
+//        } else {
+//          console.log("looking for user error: " + err);
+//        }
+//	sails.sockets.broadcast(roomName, record);
+//      });
     });
     cb();
   }
