@@ -15,8 +15,11 @@ module.exports = {
     },
     author: {
       model: 'users',
-      required: true
+      required: false
     },
+    authorName: {
+      type: 'string'
+    }
     group: {
       model: 'lecture',
       required: true
