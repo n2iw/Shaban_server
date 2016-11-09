@@ -148,7 +148,7 @@ CREATE TABLE `video` (
 
 LOCK TABLES `video` WRITE;
 /*!40000 ALTER TABLE `video` DISABLE KEYS */;
-INSERT INTO `video` VALUES (1,'first video','video/video.mp4',1,'2016-11-07 13:45:43','2016-11-07 13:45:45'),(1,'Second video','video/video.mp4',2,'2016-11-08 10:06:30','2016-11-08 10:06:33'),(2,'video 1','video/video.mp4',3,'2016-11-08 21:32:26','2016-11-08 21:32:28'),(3,'video 2','video/video.mp4',4,'2016-11-08 21:32:53','2016-11-08 21:32:57'),(4,'video 3','video/video.mp4',5,'2016-11-08 21:33:25','2016-11-08 21:33:27'),(5,'video 4','video/video.mp4',6,'2016-11-08 21:33:46','2016-11-08 21:33:48'),(6,'video 5','video/video.mp4',7,'2016-11-08 21:34:08','2016-11-08 21:34:10');
+INSERT INTO `video` VALUES (1,'first video','/videos/video.mp4',1,'2016-11-07 13:45:43','2016-11-07 13:45:45'),(1,'Second video','/videos/video.mp4',2,'2016-11-08 10:06:30','2016-11-08 10:06:33'),(2,'video 1','/videos/video.mp4',3,'2016-11-08 21:32:26','2016-11-08 21:32:28'),(3,'video 2','/videos/video.mp4',4,'2016-11-08 21:32:53','2016-11-08 21:32:57'),(4,'video 3','/videos/video.mp4',5,'2016-11-08 21:33:25','2016-11-08 21:33:27'),(5,'video 4','/videos/video.mp4',6,'2016-11-08 21:33:46','2016-11-08 21:33:48'),(6,'video 5','/videos/video.mp4',7,'2016-11-08 21:34:08','2016-11-08 21:34:10');
 /*!40000 ALTER TABLE `video` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -161,4 +161,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-09  2:38:43
+-- Dump completed on 2016-11-09  2:56:53
