@@ -11,12 +11,6 @@ module.exports = {
 
     name : { type: 'string' },
 
-    lecture_count : { 
-      type: 'integer',
-      notNull: true,
-      defaultsTo: 0
-    },
-
     lectures: {
       collection: 'lecture',
       via: 'course'

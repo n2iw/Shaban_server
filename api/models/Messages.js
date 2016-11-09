@@ -8,24 +8,25 @@
 module.exports = {
 
   attributes: {
+
     content: {
       type: 'text',
       required: true,
       minLength: 5
     },
+    
     author: {
       model: 'users',
-      required: false
-    },
-    authorName: {
-      type: 'string',
       required: true
     },
+
     group: {
       model: 'lecture',
       required: true
     }
+
   },
+
   afterCreate: function(record, cb) {
     Lecture.findOne({"id": record.group}).exec(function(err, group){
       if (err) {
@@ -36,17 +37,20 @@ module.exports = {
       }
 
       var roomName = group.description;
-      sails.sockets.broadcast(roomName, record);
+      //sails.sockets.broadcast(roomName, record);
 
-//      Users.findOne({"id": record.author}).exec(function(err, user){
-//        if (!err && !user) {
-//          console.log(user);
-//          record.author = user.name;
-//        } else {
-//          console.log("looking for user error: " + err);
-//        }
-//	sails.sockets.broadcast(roomName, record);
-//      });
+      Users.findOne({"phone": record.author}).exec(function(err, user){
+        if (!err) {
+          if (user) {
+            record.authorName = user.firstName + ' ' + user.lastName;
+            sails.sockets.broadcast(roomName, record);
+          } else {
+            console.log("Wrong user: " + user);
+          }
+        } else {
+          console.log("looking for user error: " + err);
+        }
+      });
     });
     cb();
   }

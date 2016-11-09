@@ -9,16 +9,9 @@ module.exports = {
 
   attributes: {
 
-    description : { 
-      type: 'string',
+    course : { 
+      model: 'course',
       required: true
-    },
-
-    video_url : { 
-      type: 'string',
-      required: true,
-      notNull: true,
-      defaultsTo: ""
     },
 
     serial_number : { 
@@ -26,10 +19,20 @@ module.exports = {
       required: true
     },
 
-    course : { 
-      model: 'course',
+    description : { 
+      type: 'string',
       required: true
+    },
+
+    transcript_url: {
+      type: 'string'
+    },
+
+    videos: {
+      collection: 'video',
+      via: 'lecture'
     }
+
   }
 };
 

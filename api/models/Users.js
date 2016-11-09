@@ -6,27 +6,22 @@
  */
 
 module.exports = {
+  autoPK: false,
+
   attributes: {
-    university_id: {
-      type: 'integer',
-      required: true
-    },
-    arabic_name: {
+
+    firstName: {
       type: 'string'
     },
-    name: {
+
+    lastName: {
       type: 'string'
     },
-    whatsapp: {
-      type: 'string'
-    },
-    email: {
+
+    phone: {
       type: 'string',
-      email: true
-    },
-    location: {
-      type: 'string',
-      required: true
+      primaryKey: true,
+      unique: true
     }
   }
 };
