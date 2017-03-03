@@ -39,7 +39,7 @@ module.exports.routes = {
   'PATCH /users': {
     model: 'users',
     blueprint: 'update'
-  }
+  }, 
 
   /***************************************************************************
   *                                                                          *
@@ -50,5 +50,14 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+
+  '/login': {
+    view: 'login'
+  },
+
+  '/authenticate': {
+      view: 'authenticate'
+  }
+
 
 };
