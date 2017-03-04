@@ -1,8 +1,8 @@
 {
-  "name": "first_sails",
+  "name": "Shaban",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
+  "version": "1.0.0",
+  "description": "A Online learning web application",
   "keywords": [],
   "dependencies": {
     "ejs": "2.3.4",
@@ -31,8 +31,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/james/first_sails.git"
+    "url": "git@github.com:n2iw/course_app.git"
   },
-  "author": "james",
+  "author": "Ming Ying",
   "license": ""
 }
