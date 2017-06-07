@@ -26,7 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+    '*': false,
 
   /***************************************************************************
   *                                                                          *
@@ -34,6 +34,31 @@ module.exports.policies = {
   * and its actions                                                          *
   *                                                                          *
   ***************************************************************************/
+    CourseController: {
+        'find': true,
+        'findOne': true
+    },
+
+    GroupsController: {
+        'find': true,
+        'findOne': true,
+        'join': true
+    },
+
+    LectureController: {
+        'find': true,
+        'findOne': true
+    },
+
+    UsersController: {
+        'find': 'findOneUser',
+        'findOne': true
+    },
+
+    MessagesController: {
+        '*': true
+    }
+
 	// RabbitController: {
 
 		// Apply the `false` policy as the default for all of RabbitController's actions
