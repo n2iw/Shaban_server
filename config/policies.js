@@ -26,7 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-    '*': false,
+    '*': 'loggedin',
 
   /***************************************************************************
   *                                                                          *
@@ -36,7 +36,7 @@ module.exports.policies = {
   ***************************************************************************/
     CourseController: {
         'find': true,
-        'findOne': true
+        'findOne': true,
     },
 
     GroupsController: {
@@ -56,6 +56,12 @@ module.exports.policies = {
     },
 
     MessagesController: {
+        '*': true
+    }, 
+
+    AdminController: {
+        'authenticate': true,
+        'test': 'loggedin',
         '*': true
     }
 

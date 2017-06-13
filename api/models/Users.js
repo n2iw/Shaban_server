@@ -6,23 +6,23 @@
  */
 
 module.exports = {
-  autoPK: false,
+    autoPK: false,
 
-  attributes: {
+    attributes: {
 
-    firstName: {
-      type: 'string'
-    },
+        firstName: {
+            type: 'string'
+        },
 
-    lastName: {
-      type: 'string'
-    },
+        lastName: {
+            type: 'string'
+        },
 
-    phone: {
-      type: 'string',
-      primaryKey: true,
-      unique: true
+        phone: {
+            type: 'string',
+            primaryKey: true,
+            unique: true
+        }
     }
-  }
 };
 

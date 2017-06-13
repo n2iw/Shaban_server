@@ -44,7 +44,11 @@
     </div>
     <nav class="navbar navbar-default">
         <a href="/" class="btn navbar-btn">Home</a>
-        <a href="/login" class="btn navbar-btn">Login</a>
+        <% if (!req.session.user) { %>
+            <a href="/login" class="btn navbar-btn">Login</a>
+        <%} else {%>
+            <a href="/logout" class="btn navbar-btn">Logout</a>
+        <%} %>
     </nav>
     <%- body %>
 

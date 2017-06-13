@@ -7,14 +7,26 @@
 
 module.exports = {
 
-  attributes: {
+    attributes: {
 
-    name : { type: 'string' },
+        name : { type: 'string' },
 
-    lectures: {
-      collection: 'lecture',
-      via: 'course'
-    }
-  }
+        lectures: {
+            collection: 'lecture',
+            via: 'course'
+        }
+    },
+
+    afterDestroy: function(courses, cb){
+        for (course of courses) {
+            Lecture.destroy({course: course.id}).exec(function(err){
+                if (err) {
+                    console.log(err);
+                }
+            });
+        }
+
+        cb();
+    },
 };
 

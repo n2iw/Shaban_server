@@ -22,42 +22,69 @@
 
 module.exports.routes = {
 
-  /***************************************************************************
-  *                                                                          *
-  * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
-  * etc. depending on your default view engine) your home page.              *
-  *                                                                          *
-  * (Alternatively, remove this and add an `index.html` file in your         *
-  * `assets` directory)                                                      *
-  *                                                                          *
-  ***************************************************************************/
+    /***************************************************************************
+     *                                                                          *
+     * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
+     * etc. depending on your default view engine) your home page.              *
+     *                                                                          *
+     * (Alternatively, remove this and add an `index.html` file in your         *
+     * `assets` directory)                                                      *
+     *                                                                          *
+     ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  },
+    '/': {
+        view: 'homepage'
+    },
 
-  'PATCH /users': {
-    model: 'users',
-    blueprint: 'update'
-  }, 
+    'PATCH /users': {
+        model: 'users',
+        blueprint: 'update'
+    }, 
 
-  /***************************************************************************
-  *                                                                          *
-  * Custom routes here...                                                    *
-  *                                                                          *
-  * If a request to a URL doesn't match any of the custom routes above, it   *
-  * is matched against Sails route blueprints. See `config/blueprints.js`    *
-  * for configuration options and examples.                                  *
-  *                                                                          *
-  ***************************************************************************/
+    /***************************************************************************
+     *                                                                          *
+     * Custom routes here...                                                    *
+     *                                                                          *
+     * If a request to a URL doesn't match any of the custom routes above, it   *
+     * is matched against Sails route blueprints. See `config/blueprints.js`    *
+     * for configuration options and examples.                                  *
+     *                                                                          *
+     ***************************************************************************/
 
-  '/login': {
-    view: 'login'
-  },
+    '/login': {
+        view: 'login'
+    },
 
-  '/authenticate': {
-      view: 'authenticate'
-  }
+    '/authenticate': {
+        controller: 'AdminController',
+        action: 'authenticate'
+    },
+
+    '/logout': {
+        controller: 'AdminController',
+        action: 'logout'
+    },
+
+    '/course/:id/edit': {
+        controller: 'CourseController',
+        action: 'edit'
+    },
+
+    '/lecture/:id/edit': {
+        controller: 'LectureController',
+        action: 'edit'
+    },
+
+    '/video/:id/edit': {
+        controller: 'VideoController',
+        action: 'edit'
+    },
+
+    '/files/:filename': {
+        controller: 'FileController',
+        action: 'findOne'
+    }
+
 
 
 };

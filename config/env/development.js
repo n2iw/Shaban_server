@@ -12,14 +12,19 @@
 
 module.exports = {
 
-  /***************************************************************************
-   * Set the default database connection for models in the development       *
-   * environment (see config/connections.js and config/models.js )           *
-   ***************************************************************************/
+    /***************************************************************************
+     * Set the default database connection for models in the development       *
+     * environment (see config/connections.js and config/models.js )           *
+     ***************************************************************************/
 
-   models: {
-      connection: 'MysqlDev',
-      migrate: 'alter'
-   }
+    models: {
+        connection: 'MysqlDev',
+        migrate: 'alter'
+    },
+
+    /**************************************************************************
+     * Must set appUrl to base folder
+     **************************************************************************/
+    uploadFolder: '/Users/james/Downloads/shaban'
 
 };

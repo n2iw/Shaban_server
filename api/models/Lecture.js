@@ -5,34 +5,80 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
+var uploader = require('../services/uploader');
+var path = require('path');
+
 module.exports = {
 
-  attributes: {
+    attributes: {
 
-    course : { 
-      model: 'course',
-      required: true
+        course : { 
+            model: 'course',
+            required: true
+        },
+
+        serial_number : { 
+            type: 'integer',
+            required: true
+        },
+
+        description : { 
+            type: 'string',
+            required: true
+        },
+
+        transcript_url: {
+            type: 'string'
+        },
+
+        videos: {
+            collection: 'video',
+            via: 'lecture'
+        }
+
     },
 
-    serial_number : { 
-      type: 'integer',
-      required: true
+    afterDestroy: function(lectures, cb){
+        for (lecture of lectures) {
+            if (lecture.transcript_url) {
+                console.log("Deleting ", path.basename(lecture.transcript_url));
+                uploader.removeFile(lecture.transcript_url);
+            }
+            Video.destroy({lecture: lecture.id}).exec(function(err){
+                if (err) {
+                    console.log(err);
+                }
+            });
+        }
+
+        cb();
     },
 
-    description : { 
-      type: 'string',
-      required: true
-    },
+/*    beforeUpdate: function(valuesToUpdate, cb) {*/
+        //console.log("beforeUpdate");
+        //console.log(valuesToUpdate);
 
-    transcript_url: {
-      type: 'string'
-    },
+        //if(valuesToUpdate.transcript_url) {
+            //Lecture.findOne(valuesToUpdate.id).exec(err, function(lecture){
+                    //if (err) {
+                        //cb(err);
+                    //}
+                    
+                    //if (!lecture) {
+                        //return cb(new Error("Lecture not found!"));
+                    //}
 
-    videos: {
-      collection: 'video',
-      via: 'lecture'
-    }
+                    //if (lecture.transcript_url && valuesToUpdate.transcript_url !== lecture.transcript_url){
+                        //console.log("Deleting ", path.basename(this.transcript_url));
+                        //uploader.removeFile(lecture.transcript_url);
+                    //}
+                    //cb();
+                //});
+        //} else {
+            //cb();
+        //}
 
-  }
+    /*}*/
+
 };
 

@@ -1,0 +1,67 @@
+<% 
+    var description = '';
+    var button = 'Create';
+    var id = 0;
+    var order = 0;
+    var transcript = '';
+    if (typeof lectures === 'object'){
+        order = lectures.length;
+    }
+    var heading = 'Add a new lecture'
+    if (typeof lecture === 'object') {
+        description = lecture.description;
+        id = lecture.id;
+        order = lecture.serial_number;
+        transcript = lecture.transcript_url;
+        button = 'Save'
+        heading = 'Edit Lecture'
+    }
+%>
+<form method="post" action="/lecture" class="form-horizontal" enctype="multipart/form-data">
+
+    <h4 class="text-center"><%= heading %></h4>
+
+    <!-- hidden id and courseId -->
+    <input type="hidden" name="course" value="<%= c.id %>">
+    <input type="hidden" name="id" value="<%= id %>">
+
+    <!-- Description -->
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="lecture name">Lecture Description</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" id="lecture name" name="description" value="<%= description %>">
+        </div>
+    </div>
+
+    <!-- order -->
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="lecture order">Order</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" id="lecture order" name="serial_number" value="<%= order %>">
+        </div>
+    </div>
+
+
+    <!-- transcript -->
+    <% if (transcript) { %>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="transcript"></label>
+            <div class="col-sm-10 text-left">
+                <a class=""  href="<%= transcript %>" target="_blank">Preview Uploaded Transcript</a>
+            </div>
+        </div>
+    <% }%>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="transcript">Transcript</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="file" id="transcript" name="transcript">
+        </div>
+    </div>
+
+    <!-- buttons -->
+    <div class="form-group">
+        <div class="col-sm-2 col-sm-offset-2">
+            <input class="form-control btn btn-primary" type="submit" value="<%= button %>">
+        </div>
+    </div>
+</form>
