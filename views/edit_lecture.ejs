@@ -27,7 +27,7 @@
                         <tr>
                             <td><%= video.title %></td>
                             <td>
-                                <form method="post" action="/video/delete" class="form-inline">
+                                <form method="post" action="/video/delete" class="form-inline delete-item">
                                     <a href="/video/<%= video.id %>/edit" class="form-control btn btn-primary btn-sm">Edit</a>
                                     <input type="hidden" name="id" value="<%= video.id %>">
                                     <input type="submit" class="form-control btn btn-danger btn-sm" value="Delete">

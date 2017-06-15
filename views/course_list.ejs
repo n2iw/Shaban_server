@@ -20,7 +20,7 @@
                                 <label class="text-center"><%= course.name %></label>
                             </td>
                             <td>
-                                <form method="post" action="/course/delete" class="form-inline">
+                                <form method="post" action="/course/delete" class="form-inline delete-item">
                                     <a class="form-control btn btn-primary btn-sm" href="/course/<%= course.id %>/edit">Edit</a>
                                     <input type="hidden" name="id" value="<%= course.id %>">
                                     <input type="submit" class="form-control btn btn-danger btn-sm" value="Delete">
