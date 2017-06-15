@@ -63,6 +63,10 @@ module.exports.policies = {
         'authenticate': true,
         'test': 'loggedin',
         '*': true
+    },
+
+    FileController: {
+        '*': true
     }
 
 	// RabbitController: {
