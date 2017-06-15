@@ -3,7 +3,7 @@ var fs = require('fs');
 
 var uploadFile = function(req, param, success_cb, err_cb) {
     req.file(param).upload(
-        { dirname: uploadPath()}, 
+        { dirname: uploadPath(), maxBytes: 100000000}, 
         function(err, uploadedFiles){
             if (err) {
                 return err_cb(err);
