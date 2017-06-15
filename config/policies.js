@@ -61,7 +61,6 @@ module.exports.policies = {
 
     AdminController: {
         'authenticate': true,
-        'test': 'loggedin',
         '*': true
     },
 

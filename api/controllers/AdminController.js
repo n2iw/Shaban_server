@@ -6,13 +6,13 @@
  */
 
 module.exports = {
-    test: function(req, res) {
-        Admin.create({userName: "MingYing", password: "", salt: ""}).exec(function(err, ad){
+    seed: function(req, res) {
+        Admin.create({userName: "admin@shaban.com", password: "", salt: ""}).exec(function(err, ad){
             if (err) {
                 return res.serverError(err);
             }
 
-            ad.setPassword("Hello");
+            ad.setPassword("ualbany2017");
             ad.save();
 
             return res.json(ad);
@@ -21,8 +21,8 @@ module.exports = {
 
     authenticate: function(req, res) {
         // Development shortcut
-        req.session.user = {userName: 'MingYing'};
-        return res.redirect('/course/list');
+        //req.session.user = {userName: 'admin@shaban.com'};
+        //return res.redirect('/course/list');
 
         var pswd = req.param('password');
         var userName = req.param('userName');
