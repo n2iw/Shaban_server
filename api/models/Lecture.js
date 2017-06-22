@@ -49,6 +49,11 @@ module.exports = {
                     console.log(err);
                 }
             });
+            Messages.destroy({group: lecture.id}).exec(function(err){
+                if (err) {
+                    console.log(err);
+                }
+            });
         }
 
         cb();
