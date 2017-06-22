@@ -19,6 +19,7 @@
                 <thead>
                     <tr>
                         <th>Video Title</th>
+                        <th>File</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -26,6 +27,11 @@
                     <% for (video of videos) { %>
                         <tr>
                             <td><%= video.title %></td>
+                            <td>
+                                <% if (video.url) { %>
+                                    <a class="" id="url" href="<%= video.url %>" target="_blank">Preview uploaded video</a>
+                                <% } %>
+                                </td>
                             <td>
                                 <form method="post" action="/video/delete" class="form-inline delete-item">
                                     <a href="/video/<%= video.id %>/edit" class="form-control btn btn-primary btn-sm">Edit</a>

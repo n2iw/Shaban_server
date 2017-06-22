@@ -19,6 +19,7 @@
                 <thead>
                     <tr>
                         <th>Lecture Name</th>
+                        <th>Transcript</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -26,6 +27,12 @@
                     <% for (lecture of lectures) { %>
                         <tr>
                             <td><%= lecture.description %></td>
+                            <td>
+                                <% if (lecture.transcript_url) { %>
+                                    <a class=""  href="<%= lecture.transcript_url %>" target="_blank">Preview Uploaded Transcript</a>
+                                <% }%>
+                            </td>
+
                             <td>
                                 <form method="post" action="/lecture/delete" class="form-inline delete-item">
                                     <a href="/lecture/<%= lecture.id %>/edit" class="form-control btn btn-primary btn-sm">Edit</a>
